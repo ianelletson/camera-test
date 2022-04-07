@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/camera-test/static/css/main.261c80d8.css",
+    "main.js": "/camera-test/static/js/main.7b10af25.js",
+    "static/js/787.9f3da3d1.chunk.js": "/camera-test/static/js/787.9f3da3d1.chunk.js",
+    "index.html": "/camera-test/index.html",
+    "main.261c80d8.css.map": "/camera-test/static/css/main.261c80d8.css.map",
+    "main.7b10af25.js.map": "/camera-test/static/js/main.7b10af25.js.map",
+    "787.9f3da3d1.chunk.js.map": "/camera-test/static/js/787.9f3da3d1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.261c80d8.css",
+    "static/js/main.7b10af25.js"
+  ]
+}
