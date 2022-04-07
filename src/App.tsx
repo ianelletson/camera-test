@@ -1,15 +1,20 @@
-import React, { useEffect, useRef } from 'react';
-import './App.css';
-import { Webcam } from './components/Webcam';
+import { useRef } from "react";
+import "./App.css";
+import { CameraStream } from "./components/CameraStream";
 
 function App() {
-  const videoContainer = useRef<HTMLVideoElement>(null);
+	const videoContainer = useRef<HTMLVideoElement>(null);
+	const framePreviewContainer = useRef<HTMLCanvasElement>(null);
+	const cameraRollContainer = useRef<HTMLDivElement>(null);
 
-  return (
-    <div className="App">
-      <Webcam videoContainer={videoContainer}/>
-    </div>
-  );
+	return (
+		<div className="App">
+			<CameraStream
+				framePreviewContainer={framePreviewContainer}
+				videoContainer={videoContainer}
+			/>
+		</div>
+	);
 }
 
 export default App;
