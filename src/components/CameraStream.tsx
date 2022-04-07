@@ -1,5 +1,5 @@
 import { RefObject, useEffect, useRef, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 
 function GetVideo(video: HTMLVideoElement, constraints: { video: boolean }) {
@@ -52,22 +52,15 @@ function CameraStream(props: {
 			</Button>
 			<canvas ref={props.framePreviewContainer} hidden />
 			<div ref={cameraRollContainer} hidden />
-			<div></div>
-			<Image rounded src={mostRecentImage} />
-			{/* <div>
-				<Card>
-					<Card.Body>
-						<Card.Img src={mostRecentImage} />
-						<Card.Text>Test</Card.Text>
-					</Card.Body>
-				</Card>
-			</div> */}
+			<div>
+				<Container fluid="sm">
+					<a href={mostRecentImage} download={"downloadedImage"}>
+						<Image fluid thumbnail src={mostRecentImage} />
+					</a>
+				</Container>
+			</div>
 		</>
 	);
-}
-
-function CreateImageFromFrame(props: any) {
-	return <Image src={props.framePreview.toDataURL("image/jpeg")} />;
 }
 
 function CaptureFrame(
