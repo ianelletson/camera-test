@@ -1,13 +1,13 @@
 import { useRef } from 'react';
 import './App.css';
-import { Webcam } from './components/Webcam';
+import { CameraStream } from './components/CameraStream';
 
 function App() {
   const videoContainer = useRef<HTMLVideoElement>(null);
 
   return (
     <div className="App">
-      <Webcam videoContainer={videoContainer}/>
+      <CameraStream videoContainer={videoContainer}/>
     </div>
   );
 }

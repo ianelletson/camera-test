@@ -13,8 +13,7 @@ function GetVideo(videoElement: HTMLVideoElement, constraints: { video: boolean 
     })
 }
 
-function Webcam(props: { videoContainer: RefObject<HTMLVideoElement> }) {
-
+function CameraStream(props: { videoContainer: RefObject<HTMLVideoElement> }) {
     useEffect(() => {
         GetVideo(props.videoContainer.current!, {video: true});
     });
@@ -24,4 +23,4 @@ function Webcam(props: { videoContainer: RefObject<HTMLVideoElement> }) {
     );
 }
 
-export { Webcam }
+export { CameraStream }
