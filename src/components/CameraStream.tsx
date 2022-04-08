@@ -17,39 +17,42 @@ function GetVideo(video: HTMLVideoElement, constraints: { video: boolean }) {
 
 function CameraStream(props: {
 	videoContainer: RefObject<HTMLVideoElement>;
+	videoConstraints: { video: any };
 	framePreviewContainer: RefObject<HTMLCanvasElement>;
 }) {
 	const cameraRollContainer = useRef<HTMLDivElement>(null);
 	const [mostRecentImage, setMostRecentImage] = useState<string>("");
 
 	useEffect(() => {
-		GetVideo(props.videoContainer.current!, { video: true });
+		GetVideo(props.videoContainer.current!, props.videoConstraints);
 	});
 
 	return (
 		<>
-			<video
-				onCanPlay={() =>
-					DrawVideoToCanvas(
-						props.videoContainer.current!,
-						props.framePreviewContainer.current!,
-						{ width: 320, height: 240 }
-					)
-				}
-				ref={props.videoContainer}
-			/>
-			<Button
-				onClick={() =>
-					CaptureFrame(
-						props.framePreviewContainer.current!,
-						cameraRollContainer.current!,
-						{ fileType: "image/jpeg", fileName: "download" },
-						setMostRecentImage
-					)
-				}
-			>
-				Capture Still
-			</Button>
+			<Container>
+				<video
+					onCanPlay={() =>
+						DrawVideoToCanvas(
+							props.videoContainer.current!,
+							props.framePreviewContainer.current!,
+							{ width: 1280, height: 720 }
+						)
+					}
+					ref={props.videoContainer}
+				/>
+				<Button
+					onClick={() =>
+						CaptureFrame(
+							props.framePreviewContainer.current!,
+							cameraRollContainer.current!,
+							{ fileType: "image/jpeg", fileName: "download" },
+							setMostRecentImage
+						)
+					}
+				>
+					Capture Still
+				</Button>
+			</Container>
 			<canvas ref={props.framePreviewContainer} hidden />
 			<div ref={cameraRollContainer} hidden />
 			<div>
